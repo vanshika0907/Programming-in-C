@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+struct    Distance{
+int feet;
+float inch;
+}     distance[2];
+
+int main() {
+	// take first distance input
+	printf("Enter 1st distance \n");
+	printf("feet: ");
+	scanf("%d", &distance[0].feet);
+	printf("inch: ");
+	scanf("%f", &distance[0].inch);    
+	
+	// take second distance input
+	printf("Enter 2nd distance \n");
+	printf("feet: ");
+	scanf("%d", &distance[1].feet);
+	printf("inch: ");
+	scanf("%f", &distance[1].inch);
+	
+	// adding distances
+	int totalFeet = distance[1].feet + distance[0].feet;
+	float totalInch = distance[1].inch + distance[0].inch;
+	
+	// convert inches to feet if greater than 12
+	totalFeet += (int) totalInch / 12;
+	totalInch = (float) ((int) (totalInch * 10) % 120) / 10;
+	printf("Sum of distances = %d\'-%.1f\"", totalFeet, totalInch       );
+	return 0;
+}
